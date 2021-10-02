@@ -36,50 +36,53 @@ public class PlayerControls : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        // Check if in the air
-        RaycastHit2D hitFloor = Physics2D.Raycast(transform.position, -Vector2.up, distance, inAirLayerMask);
-        inAir = hitFloor.collider == null;
 
-        RaycastHit2D hitBox = Physics2D.Raycast(transform.position, Vector2.up, distance, checkBoxLayerMask);
-        Debug.DrawRay(transform.position, Vector2.up * distance, Color.red);
-        hasBox = hitBox.collider != null;
-        if (hasBox) {
-            if (lastInteractableObject == null) {
-                lastInteractableObject = hitBox.collider.GetComponent<InteractableObject>();
-                lastInteractableObject.FollowPlayer(gameObject, hitBox.point);
+        if (!GameControl.storyTime) {
+            // Check if in the air
+            RaycastHit2D hitFloor = Physics2D.Raycast(transform.position, -Vector2.up, distance, inAirLayerMask);
+            inAir = hitFloor.collider == null;
+
+            RaycastHit2D hitBox = Physics2D.Raycast(transform.position, Vector2.up, distance, checkBoxLayerMask);
+            Debug.DrawRay(transform.position, Vector2.up * distance, Color.red);
+            hasBox = hitBox.collider != null;
+            if (hasBox) {
+                if (lastInteractableObject == null) {
+                    lastInteractableObject = hitBox.collider.GetComponent<InteractableObject>();
+                    lastInteractableObject.FollowPlayer(gameObject, hitBox.point);
+                }
             }
-        }
-        else {
-            DisableLastInteractableObject();
-        }
-
-        if (Input.GetKey(left)) {
-            Vector3 move = -Vector3.right * sign * speed * Time.deltaTime;
-            transform.Translate(move);
-
-            spotLight.transform.localEulerAngles = new Vector3(0, -90 * sign, 0);
-        }
-
-        if (Input.GetKey(right)) {
-            Vector3 move = Vector3.right * sign * speed * Time.deltaTime;
-            transform.Translate(move);
-
-            spotLight.transform.localEulerAngles = new Vector3(0, 90 * sign, 0);
-        }
-
-        if (!inAir) {
-            if (Input.GetKeyDown(jump)) {
-                rb2.AddForce(Vector3.up * sign * jumpStrength, ForceMode2D.Impulse);
+            else {
+                DisableLastInteractableObject();
             }
-        }
 
-        if (Input.GetKeyDown(_switch)) {
-            DisableLastInteractableObject();
-            Flip();
-        }
+            if (Input.GetKey(left)) {
+                Vector3 move = -Vector3.right * sign * speed * Time.deltaTime;
+                transform.Translate(move);
 
-        if (Input.GetKeyDown(reset)) {
-            SceneChanger.Instance.ReloadScene();
+                spotLight.transform.localEulerAngles = new Vector3(0, -90 * sign, 0);
+            }
+
+            if (Input.GetKey(right)) {
+                Vector3 move = Vector3.right * sign * speed * Time.deltaTime;
+                transform.Translate(move);
+
+                spotLight.transform.localEulerAngles = new Vector3(0, 90 * sign, 0);
+            }
+
+            if (!inAir) {
+                if (Input.GetKeyDown(jump)) {
+                    rb2.AddForce(Vector3.up * sign * jumpStrength, ForceMode2D.Impulse);
+                }
+            }
+
+            if (Input.GetKeyDown(_switch)) {
+                DisableLastInteractableObject();
+                Flip();
+            }
+
+            if (Input.GetKeyDown(reset)) {
+                SceneChanger.Instance.ReloadScene();
+            }
         }
     }
 

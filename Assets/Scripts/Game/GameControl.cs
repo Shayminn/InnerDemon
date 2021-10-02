@@ -6,4 +6,7 @@ public static class GameControl
 {
     public static bool flipped = false;
     public static bool hasKey = false;
+
+    public static bool storyTime = false;
+    public static bool tutorialCompleted = false;
 }

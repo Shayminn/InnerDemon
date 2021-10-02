@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Key
+  - Door
+  - Spike
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -42,12 +45,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1062262349
+    locked: 0
+  - name: Tilemap
+    uniqueID: 1605857337
+    locked: 0
+  - name: Objects
+    uniqueID: 4169656775
+    locked: 0
+  - name: Player2
+    uniqueID: 2375402503
+    locked: 0
   - name: Player
     uniqueID: 3989939239
     locked: 0
-  - name: 
+  - name: PlayerText
     uniqueID: 1861111353
-    locked: 0
-  - name: 
-    uniqueID: 806767299
     locked: 0

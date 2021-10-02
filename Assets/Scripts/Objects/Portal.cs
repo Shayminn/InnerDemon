@@ -7,6 +7,8 @@ public class Portal : MonoBehaviour
     public Scenes nextLevel;
 
     public void ChangeLevel() {
+        StoryProgression.storySeen = false;
+
         if (nextLevel == Scenes.None) {
             // Proceed to ending
         }

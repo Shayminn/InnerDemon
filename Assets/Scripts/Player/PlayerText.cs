@@ -9,15 +9,21 @@ public class PlayerText : MonoBehaviour {
     public float fadeDelay = 3;
     public float fadeSpeed = 0.5f;
 
+    Coroutine fadeCoroutine;
+
     private void Awake() {
         Instance = this;
     }
 
-    public void WriteText(string txt) {
+    public void WriteText(string txt, bool fade) {
         text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
         text.text = txt;
 
-        StartCoroutine(FadeText(fadeDelay));
+        if (fade) {
+            if (fadeCoroutine != null)
+                StopCoroutine(fadeCoroutine);
+            fadeCoroutine = StartCoroutine(FadeText(fadeDelay));
+        }
     }
 
     private IEnumerator FadeText(float delay) {

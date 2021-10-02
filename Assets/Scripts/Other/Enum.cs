@@ -22,6 +22,9 @@ public enum Controls {
 }
 
 public enum Tags {
+    Player,
+    Button,
+    ToggleButton,
     Key,
     Door,
     Spike,
