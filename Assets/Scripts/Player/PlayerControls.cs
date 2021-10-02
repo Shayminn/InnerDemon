@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour {
 
     public GameObject otherSelf;
 
+    public PlayerText playerText;
     public GameObject spotLight;
     public Rigidbody2D rb2;
 
@@ -43,7 +44,6 @@ public class PlayerControls : MonoBehaviour {
             inAir = hitFloor.collider == null;
 
             RaycastHit2D hitBox = Physics2D.Raycast(transform.position, Vector2.up, distance, checkBoxLayerMask);
-            Debug.DrawRay(transform.position, Vector2.up * distance, Color.red);
             hasBox = hitBox.collider != null;
             if (hasBox) {
                 if (lastInteractableObject == null) {
@@ -57,14 +57,16 @@ public class PlayerControls : MonoBehaviour {
 
             if (Input.GetKey(left)) {
                 Vector3 move = -Vector3.right * sign * speed * Time.deltaTime;
-                transform.Translate(move);
+                if (!RaycastHorizontal(move))
+                    transform.Translate(move);
 
                 spotLight.transform.localEulerAngles = new Vector3(0, -90 * sign, 0);
             }
 
             if (Input.GetKey(right)) {
                 Vector3 move = Vector3.right * sign * speed * Time.deltaTime;
-                transform.Translate(move);
+                if (!RaycastHorizontal(move))
+                    transform.Translate(move);
 
                 spotLight.transform.localEulerAngles = new Vector3(0, 90 * sign, 0);
             }
@@ -86,16 +88,27 @@ public class PlayerControls : MonoBehaviour {
         }
     }
 
-    void Flip() {
+    private bool RaycastHorizontal(Vector3 dir) {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 0.15f, inAirLayerMask);
+        if (hit.collider != null) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void Flip() {
         cam.Flip();
         cam.ChangeTarget(otherSelf);
 
         otherSelf.transform.position = transform.position;
         otherSelf.SetActive(true);
         gameObject.SetActive(false);
+
+        playerText.Clear();
     }
 
-    void DisableLastInteractableObject() {
+    private void DisableLastInteractableObject() {
         if (lastInteractableObject != null) {
             lastInteractableObject.StopFollow();
             lastInteractableObject = null;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,6 +56,11 @@ public class StoryProgression : MonoBehaviour {
         }
 
         yield return StartCoroutine(FadeOut());
+
+        if (!GameControl.tutorialCompleted) {
+            ActivateTutorialTriggers();
+            GameControl.tutorialCompleted = true;
+        }
 
         InitializePlayersForGame();
         storySeen = true;
@@ -115,9 +121,16 @@ public class StoryProgression : MonoBehaviour {
         player2.gameObject.SetActive(false);
         player2.transform.localScale = new Vector3(1, 1, 1);
         player2.text = player2GameText;
+        player2StoryText.gameObject.SetActive(false);
         player2Lights.SetActive(true);
         player2Collider.enabled = true;
         player2RB.gravityScale = -1;
+    }
+
+    private void ActivateTutorialTriggers() {
+        foreach(Tutorial tutorial in FindObjectsOfType<Tutorial>().ToList()) {
+            tutorial.GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
 }
 

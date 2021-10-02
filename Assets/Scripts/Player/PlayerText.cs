@@ -26,6 +26,10 @@ public class PlayerText : MonoBehaviour {
         }
     }
 
+    public void Clear() {
+        text.text = "";
+    }
+
     private IEnumerator FadeText(float delay) {
         yield return new WaitForSeconds(fadeDelay);
 
