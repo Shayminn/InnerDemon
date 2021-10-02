@@ -23,6 +23,8 @@ public class Settings : MonoBehaviour {
     [SerializeField] private Slider audioSlider;
     [SerializeField] private Text volumeText;
 
+    public GameObject quitButton;
+
     public static Dictionary<Controls, KeyCode> KeyControls = new Dictionary<Controls, KeyCode> {
         { Controls.Left, KeyCode.A },
         { Controls.Right, KeyCode.D },
@@ -35,6 +37,14 @@ public class Settings : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+    }
+
+    private void Update() {
+        if (settings.activeInHierarchy) {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                ToggleSettings(false);
+            }
+        }
     }
 
     public void ButtonListener() {
@@ -50,11 +60,16 @@ public class Settings : MonoBehaviour {
 
         if (!toggle) {
             EventSystem.current.SetSelectedGameObject(null);
+            quitButton.SetActive(false);
         }
     }
 
     public void OnSliderValueChanged() {
         volumeText.text = audioSlider.value.ToString();
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 
     IEnumerator CheckInput() {

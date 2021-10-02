@@ -6,6 +6,10 @@ public enum Scenes {
     None,
     Main = 1,
     Level1,
+    Level2,
+    Level3,
+    Level4,
+    Level5,
     Credits
 }
 
@@ -15,4 +19,11 @@ public enum Controls {
     Jump,
     Switch,
     Reset
+}
+
+public enum Tags {
+    Key,
+    Door,
+    Spike,
+    Portal
 }

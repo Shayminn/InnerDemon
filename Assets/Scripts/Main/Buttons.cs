@@ -11,14 +11,6 @@ public class Buttons : MonoBehaviour
         settings = FindObjectOfType<Settings>().settings;  
     }
 
-    private void Update() {
-        if (settings.activeInHierarchy) {
-            if (Input.GetKeyDown(KeyCode.Escape)) {
-                Settings(false);
-            }
-        }    
-    }
-
     public void Settings(bool toggle) {
         settings.SetActive(toggle);
 
