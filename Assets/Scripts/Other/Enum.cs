@@ -28,5 +28,6 @@ public enum Tags {
     Key,
     Door,
     Spike,
-    Portal
+    Portal,
+    Platform
 }
