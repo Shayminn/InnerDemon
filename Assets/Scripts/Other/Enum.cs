@@ -8,3 +8,11 @@ public enum Scenes {
     Level1,
     Credits
 }
+
+public enum Controls {
+    Left,
+    Right,
+    Jump,
+    Switch,
+    Reset
+}
