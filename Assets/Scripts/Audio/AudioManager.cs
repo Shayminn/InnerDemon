@@ -17,7 +17,6 @@ public class AudioManager : MonoBehaviour {
     public float DelayBetweenEachBGClip = 15f;
 
     public static bool FirstRun = true;
-    static bool playing = false;
 
     private void Awake() {
         Instance = this;

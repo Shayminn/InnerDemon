@@ -80,9 +80,14 @@ public class PlayerControls : MonoBehaviour {
             }
 
             if (Input.GetKeyDown(_switch)) {
-                AudioManager.Instance.PlaySFX(SFX.Switch);
-                DisableLastInteractableObject();
-                Flip();
+                if (otherSelf != null) {
+                    AudioManager.Instance.PlaySFX(SFX.Switch);
+                    DisableLastInteractableObject();
+                    Flip();
+                }
+                else {
+                    playerText.WriteText("(Other me is dead.)", true);
+                }
             }
 
             if (Input.GetKeyDown(reset)) {
@@ -100,7 +105,7 @@ public class PlayerControls : MonoBehaviour {
         return false;
     }
 
-    private void Flip() {
+    public void Flip() {
         cam.Flip();
         cam.ChangeTarget(otherSelf);
 

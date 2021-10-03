@@ -9,6 +9,7 @@ TagManager:
   - Spike
   - Portal
   - Platform
+  - Box
   layers:
   - Default
   - TransparentFX

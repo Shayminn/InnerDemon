@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class MovingPlatformScript : MonoBehaviour
 {
-    public GameObject player;
     public Transform pos1, pos2;
     public float speed, distance;
 
     public Transform startPos;
-    private Transform lastPos;
+    private Vector3 lastPos;
     Vector3 nextPos;
 
     void Start()
@@ -15,7 +14,7 @@ public class MovingPlatformScript : MonoBehaviour
         nextPos = startPos.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (transform.position == pos1.position)
         {
@@ -25,19 +24,21 @@ public class MovingPlatformScript : MonoBehaviour
         {
             nextPos = pos1.position;
         }
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.fixedDeltaTime);
 
-        lastPos = transform;
-        distance = Mathf.Abs(lastPos.position.x - transform.position.x);
+        distance = lastPos.x - transform.position.x;
+        lastPos = transform.position;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            Vector3 targetPos = player.transform.position;
-            targetPos.x += distance;
-            player.transform.position = targetPos;
+        switch (collision.gameObject.tag) {
+            case nameof(Tags.Player):
+            case nameof(Tags.Box):
+                Vector3 targetPos = collision.transform.position;
+                targetPos.x -= distance;
+                collision.transform.position = targetPos;
+                break;
         }
     }
 

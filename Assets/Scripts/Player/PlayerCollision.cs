@@ -16,6 +16,7 @@ public class PlayerCollision : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision) {
         switch (collision.tag) {
             case nameof(Tags.Key):
+                Debug.Log(collision.gameObject);
                 AudioManager.Instance.PlaySFX(SFX.Key);
                 UISettings.Instance.GetKey();
                 Destroy(collision.gameObject);

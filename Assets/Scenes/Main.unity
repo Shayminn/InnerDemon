@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714383d55bc1bdc48b4a6386dc264bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedScene: 7
+  selectedScene: 3
 --- !u!114 &506851949
 MonoBehaviour:
   m_ObjectHideFlags: 0

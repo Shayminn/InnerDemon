@@ -26,7 +26,9 @@ public class FollowPlayer : MonoBehaviour {
     }
 
     private void Update() {
-        //cam.transform.position = new Vector3(currrentTarget.transform.position.x, currrentTarget.transform.position.y, cam.transform.position.z);
+        if (currentTarget == null)
+            return;
+
         cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(currentTarget.transform.position.x, currentTarget.transform.position.y, cam.transform.position.z), Time.deltaTime * camSpeed);
 
         if (rotate) {

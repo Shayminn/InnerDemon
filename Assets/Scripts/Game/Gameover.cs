@@ -25,7 +25,6 @@ public class Gameover : MonoBehaviour
     }
 
     public void DisplayGameOver(bool ending) {
-
         StartCoroutine(FadeIn(ending));
     }
 

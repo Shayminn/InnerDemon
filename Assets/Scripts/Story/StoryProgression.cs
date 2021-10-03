@@ -23,8 +23,15 @@ public class StoryProgression : MonoBehaviour {
     public List<DictionaryText> dictionaryTexts;
 
     private void Start() {
-        if (!storySeen)
+        GameControl.flipped = false;
+        GameControl.hasKey = false;
+
+        if (!storySeen) {
             StartCoroutine(PlayStory());
+        }
+        else {
+            InitializePlayersForGame();
+        }
     }
 
     public IEnumerator PlayStory() {

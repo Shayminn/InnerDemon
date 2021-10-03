@@ -24,6 +24,7 @@ public enum Controls {
 }
 
 public enum Tags {
+    Box,
     Player,
     Button,
     ToggleButton,
