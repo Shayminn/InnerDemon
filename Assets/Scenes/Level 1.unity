@@ -1348,7 +1348,8 @@ MonoBehaviour:
   player2RB: {fileID: 1412954860}
   player2StoryText: {fileID: 1024850014}
   player2GameText: {fileID: 1647701497}
-  fadeSpeed: 10
+  player2ShadowEffect: {fileID: 1412954865}
+  fadeSpeed: 5
   dictionaryTexts:
   - text: Where am I...?
     fadeText: 0
@@ -2242,6 +2243,7 @@ GameObject:
   - component: {fileID: 1412954858}
   - component: {fileID: 1412954863}
   - component: {fileID: 1412954864}
+  - component: {fileID: 1412954865}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -2421,6 +2423,19 @@ MonoBehaviour:
   text: {fileID: 1024850014}
   fadeDelay: 3
   fadeSpeed: 0.5
+--- !u!114 &1412954865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412954857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2207d006b979ddd43938249de9204711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadow: {fileID: 6454919321638895312, guid: 977bba9d1f4abbe42986cb1b6cffca96, type: 3}
 --- !u!1 &1536481073
 GameObject:
   m_ObjectHideFlags: 0

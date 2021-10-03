@@ -24,6 +24,7 @@ public class Settings : MonoBehaviour {
     [SerializeField] private Text volumeText;
 
     public GameObject quitButton;
+    public float scaleSpeed;
 
     public static Dictionary<Controls, KeyCode> KeyControls = new Dictionary<Controls, KeyCode> {
         { Controls.Left, KeyCode.A },
@@ -34,6 +35,7 @@ public class Settings : MonoBehaviour {
     };
 
     private string SelectedButtonName = "";
+    private bool transitioning = false;
 
     private void Awake() {
         Instance = this;
@@ -59,15 +61,54 @@ public class Settings : MonoBehaviour {
     public void ToggleSettings(bool toggle) {
         AudioManager.Instance.PlaySFX(SFX.Click);
 
-        settings.SetActive(toggle);
-
-        if (!toggle) {
-            EventSystem.current.SetSelectedGameObject(null);
+        if (!transitioning) {
+            if (!toggle) {
+                EventSystem.current.SetSelectedGameObject(null);
 
 #if !UNITY_WEBGL
-            quitButton.SetActive(false);
+                quitButton.SetActive(false);
 #endif
+
+                StartCoroutine(CloseSettingsEffect());
+            }
+            else {
+                StartCoroutine(OpenSettingsEffect());
+            }
         }
+    }
+
+    public IEnumerator OpenSettingsEffect() {
+        settings.SetActive(true);
+        settings.transform.localScale = Vector3.zero;
+
+        transitioning = true;
+        float scale = 0;
+        while (settings.transform.localScale.x < 1) {
+            scale += Time.deltaTime * scaleSpeed;
+            settings.transform.localScale = new Vector3(scale, scale, scale);
+
+            yield return null;
+        }
+        transitioning = false;
+
+        settings.transform.localScale = Vector3.one;
+    }
+
+    public IEnumerator CloseSettingsEffect() {
+        settings.transform.localScale = Vector3.one;
+
+        transitioning = true;
+        float scale = 1;
+        while (settings.transform.localScale.x > 0) {
+            scale -= Time.deltaTime * scaleSpeed;
+            settings.transform.localScale = new Vector3(scale, scale, scale);
+
+            yield return null;
+        }
+        transitioning = false;
+
+        settings.transform.localScale = Vector3.zero;
+        settings.SetActive(false);
     }
 
     public void OnSliderClicked() {

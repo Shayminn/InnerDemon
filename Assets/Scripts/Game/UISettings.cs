@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class UISettings : MonoBehaviour
 {
     public static UISettings Instance;
-    public Settings settings;
 
     public Image key;
 
@@ -14,17 +13,13 @@ public class UISettings : MonoBehaviour
         Instance = this;
     }
 
-    private void Start() {
-        settings = Settings.Instance;
-    }
-
     public void ToggleSettings() {
         AudioManager.Instance.PlaySFX(SFX.Click);
 
 #if !UNITY_WEBGL
-        settings.quitButton.SetActive(true);
+        Settings.Instance.quitButton.SetActive(true);
 #endif
-        settings.settings.SetActive(!settings.settings.activeSelf);
+        Settings.Instance.ToggleSettings(!Settings.Instance.settings.activeInHierarchy);
     }
 
     public void GetKey() {

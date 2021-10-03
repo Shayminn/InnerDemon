@@ -976,7 +976,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 330093755}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: Settings
+        m_MethodName: ToggleSettings
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -3119,6 +3119,7 @@ MonoBehaviour:
   audioSlider: {fileID: 4788963864103670114}
   volumeText: {fileID: 4788963863325184614}
   quitButton: {fileID: 7887382838408878070}
+  scaleSpeed: 3
 --- !u!114 &1144122596390425871
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,20 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Buttons : MonoBehaviour
 {
-    private GameObject settings;
-
-    private void Start() {
-        settings = FindObjectOfType<Settings>().settings;  
-    }
-
-    public void Settings(bool toggle) {
-        AudioManager.Instance.PlaySFX(SFX.Click);
-
-        settings.SetActive(toggle);
-
-        if (!toggle) {
-            EventSystem.current.SetSelectedGameObject(null);
-        }
+    public void ToggleSettings(bool toggle) {
+        Settings.Instance.ToggleSettings(toggle);
     }
 
     public void Quit() {
