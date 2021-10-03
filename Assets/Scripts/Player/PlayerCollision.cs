@@ -16,10 +16,11 @@ public class PlayerCollision : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision) {
         switch (collision.tag) {
             case nameof(Tags.Key):
-                Debug.Log(collision.gameObject);
-                AudioManager.Instance.PlaySFX(SFX.Key);
-                UISettings.Instance.GetKey();
-                Destroy(collision.gameObject);
+                if (Vector3.Distance(transform.position, collision.transform.position) < 1.5f) {
+                    AudioManager.Instance.PlaySFX(SFX.Key);
+                    UISettings.Instance.GetKey();
+                    Destroy(collision.gameObject);
+                }
                 break;
 
             case nameof(Tags.Spike):

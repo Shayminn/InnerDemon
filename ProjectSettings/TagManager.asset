@@ -10,6 +10,7 @@ TagManager:
   - Portal
   - Platform
   - Box
+  - Button
   layers:
   - Default
   - TransparentFX
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: Tilemap
     uniqueID: 1605857337
+    locked: 0
+  - name: ButtonObjects
+    uniqueID: 291756261
     locked: 0
   - name: Objects
     uniqueID: 4169656775

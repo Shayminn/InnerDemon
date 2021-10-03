@@ -1381,7 +1381,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3941492084682501854, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
       propertyPath: m_SpotAngle
-      value: 49.5
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 3941492084987208873, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
       propertyPath: m_Name
@@ -1437,7 +1437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941492085246601999, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
       propertyPath: m_Range
-      value: 13.5
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}

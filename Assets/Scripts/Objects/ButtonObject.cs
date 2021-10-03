@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ButtonObject : MonoBehaviour
@@ -33,7 +34,7 @@ public class ButtonObject : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision) {
         if (toggle) {
-            if (collision.CompareTag(Tags.Player.ToString()))
+            if (collision.CompareTag(Tags.Player.ToString())) 
                 triggered = !triggered;
         }
         else {
