@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public GameObject player;
     public Color color;
     public PlayerText playerText;
 
@@ -47,21 +46,9 @@ public class PlayerCollision : MonoBehaviour
             case nameof(Tags.Portal):
                 collision.GetComponent<Portal>().ChangeLevel();
                 break;
-
-            case nameof(Tags.Platform):
-                player.transform.parent = collision.gameObject.transform;
-                break;
         }
         if (collision.CompareTag(Tags.Key.ToString())) {
         }
 
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            player.transform.parent = null;
-        }
     }
 }

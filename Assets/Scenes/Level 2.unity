@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 232980720}
   - component: {fileID: 232980719}
   - component: {fileID: 232980718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -340,9 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80654bd04dc0a1841a2ef82c2dd7cf25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 888404326}
   pos1: {fileID: 204549042}
   pos2: {fileID: 1479153068}
   speed: 2
+  distance: 0
   startPos: {fileID: 204549042}
 --- !u!212 &232980720
 SpriteRenderer:
@@ -868,7 +870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93697546521bf4440886dff5e73692a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 888404326}
   color: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
   playerText: {fileID: 0}
 --- !u!1 &1176072348
@@ -1233,7 +1234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93697546521bf4440886dff5e73692a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   playerText: {fileID: 0}
 --- !u!1 &1479153067
