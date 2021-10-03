@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: 1
-  toggleOn: {fileID: 21300000, guid: 95665edc7aa4623419820ce45175f758, type: 3}
-  toggleOff: {fileID: 21300000, guid: 535060c2b2a857344b7379847bdb5235, type: 3}
+  on: {fileID: 21300000, guid: 95665edc7aa4623419820ce45175f758, type: 3}
+  off: {fileID: 21300000, guid: 535060c2b2a857344b7379847bdb5235, type: 3}
   triggered: 0
   moveSpeed: 5
   objsToMove:

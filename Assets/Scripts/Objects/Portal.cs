@@ -16,7 +16,8 @@ public class Portal : MonoBehaviour {
                 SceneChanger.Instance.ChangeScene((int)Scenes.Ending);
             }
         }
-
-        SceneChanger.Instance.ChangeScene((int)nextLevel);
+        else {
+            SceneChanger.Instance.ChangeScene((int)nextLevel);
+        }
     }
 }
