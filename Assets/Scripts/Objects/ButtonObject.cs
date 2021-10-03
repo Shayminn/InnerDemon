@@ -6,6 +6,11 @@ using UnityEngine;
 public class ButtonObject : MonoBehaviour
 {
     public bool toggle = false;
+    public Sprite toggleOn;
+    public Sprite toggleOff;
+    SpriteRenderer sprite;
+
+    [Space]
     public bool triggered = false;
     public float moveSpeed = 5;
 
@@ -13,6 +18,11 @@ public class ButtonObject : MonoBehaviour
 
     private void Start() {
         InitializeFromPositions();
+
+        if (toggle) {
+            sprite = GetComponent<SpriteRenderer>();
+            sprite.sprite = toggleOff;
+        }
     }
 
     private void Update() {
@@ -34,8 +44,13 @@ public class ButtonObject : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision) {
         if (toggle) {
-            if (collision.CompareTag(Tags.Player.ToString())) 
+            if (collision.CompareTag(Tags.Player.ToString())) {
                 triggered = !triggered;
+
+                sprite.sprite = triggered
+                              ? toggleOn
+                              : toggleOff;
+            }
         }
         else {
             triggered = true;
