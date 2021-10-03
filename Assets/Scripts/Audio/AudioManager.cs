@@ -33,7 +33,6 @@ public class AudioManager : MonoBehaviour
     }
 
     public IEnumerator PlayBackground() {
-
         int random = UnityEngine.Random.Range(0, tempBGAudioClips.Count);
         backgroundAudio.clip = tempBGAudioClips[random];
         backgroundAudio.Play();

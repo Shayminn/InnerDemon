@@ -30,6 +30,7 @@ public class StoryProgression : MonoBehaviour {
     public IEnumerator PlayStory() {
         GameControl.storyTime = true;
         InitializePlayersForStory();
+        FollowPlayer.Instance.Zoom(true);
 
         yield return StartCoroutine(FadeIn());
 
@@ -56,6 +57,8 @@ public class StoryProgression : MonoBehaviour {
         }
 
         yield return StartCoroutine(FadeOut());
+
+        FollowPlayer.Instance.Zoom(false);
 
         if (!GameControl.tutorialCompleted) {
             ActivateTutorialTriggers();

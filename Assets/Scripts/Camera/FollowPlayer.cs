@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -6,8 +7,10 @@ public class FollowPlayer : MonoBehaviour {
     public static FollowPlayer Instance;
 
     public Camera cam;
-    public Transform currrentTarget;
+    public Transform currentTarget;
 
+    public float camSpeed;
+    public float zoomSpeed;
     public float rotateSpeed;
     public bool rotate = false;
 
@@ -18,11 +21,12 @@ public class FollowPlayer : MonoBehaviour {
     }
 
     private void Start() {
-        currrentTarget = FindObjectOfType<PlayerControls>().transform;
+        currentTarget = FindObjectOfType<PlayerControls>().transform;
     }
 
     private void Update() {
-        cam.transform.position = new Vector3(currrentTarget.transform.position.x, currrentTarget.transform.position.y, cam.transform.position.z);
+        //cam.transform.position = new Vector3(currrentTarget.transform.position.x, currrentTarget.transform.position.y, cam.transform.position.z);
+        cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(currentTarget.transform.position.x, currentTarget.transform.position.y, cam.transform.position.z), Time.deltaTime * camSpeed);
 
         if (rotate) {
             transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, 0, zTarget), rotateSpeed * Time.deltaTime);
@@ -32,6 +36,32 @@ public class FollowPlayer : MonoBehaviour {
                 rotate = false;
             }
         }
+    }
+
+    public void Zoom(bool closer) {
+        if (closer) {
+            StartCoroutine(ZoomIn());
+        }
+        else {
+            StartCoroutine(ZoomOut());
+        }
+    }
+
+    public IEnumerator ZoomIn() {
+        while (cam.orthographicSize > 5) {
+            cam.orthographicSize -= Time.deltaTime * zoomSpeed;
+            yield return null;
+        }
+        cam.orthographicSize = 5;
+    }
+
+    public IEnumerator ZoomOut() {
+        Debug.Log(cam.orthographicSize);
+        while (cam.orthographicSize < 10) {
+            cam.orthographicSize += Time.deltaTime * zoomSpeed;
+            yield return null;
+        }
+        cam.orthographicSize = 10;
     }
 
     public void Flip() {
@@ -56,6 +86,6 @@ public class FollowPlayer : MonoBehaviour {
     }
 
     public void ChangeTarget(GameObject newTarget) {
-        currrentTarget = newTarget.transform;
+        currentTarget = newTarget.transform;
     }
 }
