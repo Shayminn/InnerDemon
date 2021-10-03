@@ -1,11 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class ButtonObject : MonoBehaviour
-{
+public class ButtonObject : MonoBehaviour {
     public bool toggle = false;
+    public Sprite on;
+    public Sprite off;
+    SpriteRenderer sprite;
+
+    [Space]
     public bool triggered = false;
     public float moveSpeed = 5;
 
@@ -13,6 +15,9 @@ public class ButtonObject : MonoBehaviour
 
     private void Start() {
         InitializeFromPositions();
+
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.sprite = off;
     }
 
     private void Update() {
@@ -34,23 +39,33 @@ public class ButtonObject : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision) {
         if (toggle) {
-            if (collision.CompareTag(Tags.Player.ToString())) 
+            if (collision.CompareTag(Tags.Player.ToString())) {
                 triggered = !triggered;
+
+                sprite.sprite = triggered
+                              ? on
+                              : off;
+            }
         }
         else {
             triggered = true;
+
+            sprite.sprite = on;
         }
     }
 
     public void OnTriggerStay2D(Collider2D collision) {
         if (!toggle)
-            if (!triggered) 
+            if (!triggered)
                 triggered = true;
     }
 
     public void OnTriggerExit2D(Collider2D collision) {
-        if (!toggle)
+        if (!toggle) {
             triggered = false;
+
+            sprite.sprite = off;
+        }
     }
 
     public void InitializeFromPositions() {
