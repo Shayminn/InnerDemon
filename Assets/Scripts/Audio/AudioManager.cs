@@ -1,48 +1,45 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
-{
+public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
 
     [SerializeField] private AudioSource backgroundAudio;
     [SerializeField] private AudioSource sfxAudio;
 
     [SerializeField] List<AudioClip> backgroundAudioClips;
-    private List<AudioClip> tempBGAudioClips;
+    private List<AudioClip> tempBGAudioClips = new List<AudioClip>();
 
     [SerializeField] List<AudioClip> sfxAudioClips;
 
     public float DelayBetweenEachBGClip = 15f;
 
     public static bool FirstRun = true;
+    static bool playing = false;
+
+    private void Awake() {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start() {
-        if (FirstRun) {
-            FirstRun = false;
-            ResetList();
-
-            Instance = this;
-
-            StartCoroutine(PlayBackground());
-        }
+        StartCoroutine(PlayBackground());
     }
 
     public IEnumerator PlayBackground() {
+        if (tempBGAudioClips.Count == 0) {
+            ResetList();
+        }
+
         int random = UnityEngine.Random.Range(0, tempBGAudioClips.Count);
         backgroundAudio.clip = tempBGAudioClips[random];
         backgroundAudio.Play();
 
         tempBGAudioClips.RemoveAt(random);
-        if (tempBGAudioClips.Count == 0) {
-            ResetList();
-        }
 
-        while (backgroundAudio.isPlaying) {
+        while (backgroundAudio.clip.length != backgroundAudio.time) {
             yield return null;
         }
 

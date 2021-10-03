@@ -1840,6 +1840,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c43c498ea84e9442ab37ea0009ac343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &681153563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1074229702041858218, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+  m_PrefabInstance: {fileID: 681153560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &752227923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1901421967}
-  currentTarget: {fileID: 0}
+  currentTarget: {fileID: 681153563}
   camSpeed: 50
   zoomSpeed: 5
   rotateSpeed: 5

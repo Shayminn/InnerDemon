@@ -1762,6 +1762,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1074229702041858212, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
   m_PrefabInstance: {fileID: 1714994230}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1714994234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1074229702041858218, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+  m_PrefabInstance: {fileID: 1714994230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1901421965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1901421967}
-  currentTarget: {fileID: 0}
+  currentTarget: {fileID: 1714994234}
   camSpeed: 50
   zoomSpeed: 5
   rotateSpeed: 5

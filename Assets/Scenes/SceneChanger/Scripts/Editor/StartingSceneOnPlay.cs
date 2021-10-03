@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // Comment out the line below to stop the editor from starting in DontDestroyOnLoad scene
-//[InitializeOnLoad]
+[InitializeOnLoad]
 public static class StartingSceneOnPlay {
     private static string oldScene;
     private const string FIRST_SCENE_NAME = "DontDestroyOnLoad";

@@ -69,15 +69,15 @@ public class StoryProgression : MonoBehaviour {
             storySeen = true;
         }
         else {
-            // flicker lights
-            // dark
-            // player gone / player 2 takes over
-            // change scene to credits
+            Ending.Instance.StartEnding();
         }
         GameControl.storyTime = false;
     }
 
     public IEnumerator FadeIn() {
+        if (player2 == null)
+            yield break;
+
         player2.transform.position = player1.transform.position;
         Vector3 targetPosition = new Vector3(player2.transform.position.x + 4, player2.transform.position.y, player2.transform.position.z);
 
@@ -97,6 +97,9 @@ public class StoryProgression : MonoBehaviour {
     }
 
     public IEnumerator FadeOut() {
+        if (player2 == null)
+            yield break;
+
         Vector3 targetPosition = player1.transform.position;
 
         float scale = 1;
@@ -117,24 +120,28 @@ public class StoryProgression : MonoBehaviour {
     public void InitializePlayersForStory() {
         player1Spotlight.SetActive(false);
 
-        player2.transform.localScale = new Vector3(0, 0, 0);
-        player2.text = player2StoryText;
-        player2Lights.SetActive(false);
-        player2Collider.enabled = false;
-        player2RB.gravityScale = 0;
-        player2.gameObject.SetActive(true);
+        if (player2 != null) {
+            player2.transform.localScale = new Vector3(0, 0, 0);
+            player2.text = player2StoryText;
+            player2Lights.SetActive(false);
+            player2Collider.enabled = false;
+            player2RB.gravityScale = 0;
+            player2.gameObject.SetActive(true);
+        }
     }
 
     public void InitializePlayersForGame() {
         player1Spotlight.SetActive(true);
 
-        player2.gameObject.SetActive(false);
-        player2.transform.localScale = new Vector3(1, 1, 1);
-        player2.text = player2GameText;
-        player2StoryText.gameObject.SetActive(false);
-        player2Lights.SetActive(true);
-        player2Collider.enabled = true;
-        player2RB.gravityScale = -1;
+        if (player2 != null) {
+            player2.gameObject.SetActive(false);
+            player2.transform.localScale = new Vector3(1, 1, 1);
+            player2.text = player2GameText;
+            player2StoryText.gameObject.SetActive(false);
+            player2Lights.SetActive(true);
+            player2Collider.enabled = true;
+            player2RB.gravityScale = -1;
+        }
     }
 
     private void ActivateTutorialTriggers() {
