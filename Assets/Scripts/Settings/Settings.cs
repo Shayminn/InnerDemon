@@ -48,6 +48,7 @@ public class Settings : MonoBehaviour {
     }
 
     public void ButtonListener() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
 
         GameObject button = EventSystem.current.currentSelectedGameObject;
         SelectedButtonName = button.transform.parent.name;
@@ -56,19 +57,32 @@ public class Settings : MonoBehaviour {
     }
 
     public void ToggleSettings(bool toggle) {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
         settings.SetActive(toggle);
 
         if (!toggle) {
             EventSystem.current.SetSelectedGameObject(null);
+
+#if !UNITY_WEBGL
             quitButton.SetActive(false);
+#endif
         }
+    }
+
+    public void OnSliderClicked() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
     }
 
     public void OnSliderValueChanged() {
         volumeText.text = audioSlider.value.ToString();
+
+        AudioManager.Instance.AdjustVolume(audioSlider.value / 100);
     }
 
     public void Quit() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
         Application.Quit();
     }
 

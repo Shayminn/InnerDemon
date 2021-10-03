@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class UIButtons : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void PlayAgain() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
+        SceneChanger.Instance.ChangeScene((int)Scenes.Level1);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Quit() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
+        Application.Quit();
     }
 }

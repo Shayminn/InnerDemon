@@ -14,6 +14,8 @@ public class ChooseScene : MonoBehaviour
     }
 
     void ChangeScene() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
         SceneChanger.Instance.ChangeScene((int)selectedScene);
     }
 }

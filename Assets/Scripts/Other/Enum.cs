@@ -32,3 +32,14 @@ public enum Tags {
     Portal,
     Platform
 }
+
+public enum SFX {
+    Jump,
+    Key,
+    Unlock,
+    Switch,
+    Toggle,
+    Button,
+    Click,
+    Death
+}

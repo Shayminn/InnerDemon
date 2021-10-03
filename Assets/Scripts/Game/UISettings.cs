@@ -19,7 +19,11 @@ public class UISettings : MonoBehaviour
     }
 
     public void ToggleSettings() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
+#if !UNITY_WEBGL
         settings.quitButton.SetActive(true);
+#endif
         settings.settings.SetActive(!settings.settings.activeSelf);
     }
 

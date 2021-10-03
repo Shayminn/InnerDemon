@@ -12,6 +12,8 @@ public class Buttons : MonoBehaviour
     }
 
     public void Settings(bool toggle) {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
         settings.SetActive(toggle);
 
         if (!toggle) {
@@ -20,6 +22,8 @@ public class Buttons : MonoBehaviour
     }
 
     public void Quit() {
+        AudioManager.Instance.PlaySFX(SFX.Click);
+
         Application.Quit();
     }
 }

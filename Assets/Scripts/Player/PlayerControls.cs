@@ -74,10 +74,13 @@ public class PlayerControls : MonoBehaviour {
             if (!inAir) {
                 if (Input.GetKeyDown(jump)) {
                     rb2.AddForce(Vector3.up * sign * jumpStrength, ForceMode2D.Impulse);
+
+                    AudioManager.Instance.PlaySFX(SFX.Jump);
                 }
             }
 
             if (Input.GetKeyDown(_switch)) {
+                AudioManager.Instance.PlaySFX(SFX.Switch);
                 DisableLastInteractableObject();
                 Flip();
             }
