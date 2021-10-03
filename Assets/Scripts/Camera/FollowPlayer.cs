@@ -21,7 +21,8 @@ public class FollowPlayer : MonoBehaviour {
     }
 
     private void Start() {
-        currentTarget = FindObjectOfType<PlayerControls>().transform;
+        if (currentTarget == null)
+            currentTarget = FindObjectOfType<PlayerControls>().transform;
     }
 
     private void Update() {
@@ -56,7 +57,6 @@ public class FollowPlayer : MonoBehaviour {
     }
 
     public IEnumerator ZoomOut() {
-        Debug.Log(cam.orthographicSize);
         while (cam.orthographicSize < 10) {
             cam.orthographicSize += Time.deltaTime * zoomSpeed;
             yield return null;

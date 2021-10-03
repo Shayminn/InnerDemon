@@ -1310,7 +1310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &752227924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,51 +1333,41 @@ MonoBehaviour:
   player2GameText: {fileID: 1244949729}
   fadeSpeed: 10
   dictionaryTexts:
-  - text: Where am I...?
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 0
-    delay: 3
-  - text: Who are you...?
+  - text: Hey, me.
     fadeText: 1
     color: {r: 1, g: 1, b: 1, a: 1}
     player: 0
-    delay: 3
-  - text: 'I''m you. '
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 2.5
-  - text: I'm your darker side.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 2.5
-  - text: ...
+    delay: 1.5
+  - text: What?
     fadeText: 1
     color: {r: 1, g: 1, b: 1, a: 1}
-    player: 0
+    player: 1
     delay: 2
-  - text: We're in the void.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 4
-  - text: In between the two worlds.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 4
-  - text: But I know how to get out of here.
-    fadeText: 0
-    color: {r: 0.9716981, g: 0.6554379, b: 0.6554379, a: 1}
-    player: 1
-    delay: 4
-  - text: I'll help you find the exit.
+  - text: I feel like I can't see as well as I did before.
     fadeText: 1
-    color: {r: 1, g: 0.2028302, b: 0.2028302, a: 1}
-    player: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    player: 0
     delay: 4
+  - text: Hmm.
+    fadeText: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    player: 1
+    delay: 1.5
+  - text: It must be your imagination.
+    fadeText: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    player: 1
+    delay: 3
+  - text: Maybe you're getting tired.
+    fadeText: 0
+    color: {r: 0.9622642, g: 0.46751517, b: 0.46751517, a: 1}
+    player: 1
+    delay: 3
+  - text: Because I can see perfectly fine.
+    fadeText: 1
+    color: {r: 1, g: 0.023584902, b: 0.023584902, a: 1}
+    player: 1
+    delay: 3
 --- !u!4 &752227925
 Transform:
   m_ObjectHideFlags: 0
@@ -1459,6 +1449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1074229702041858219, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+      propertyPath: otherSelf
+      value: 
+      objectReference: {fileID: 1244949735}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
 --- !u!1 &826157293 stripped
@@ -1471,12 +1465,22 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1074229702041858223, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
   m_PrefabInstance: {fileID: 826157292}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 826157295}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c43c498ea84e9442ab37ea0009ac343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &826157295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1074229702041858212, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+  m_PrefabInstance: {fileID: 826157292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &826157298 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1074229702041858218, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+  m_PrefabInstance: {fileID: 826157292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1244949728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1492,6 +1496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 3941492084987208874, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
+      propertyPath: otherSelf
+      value: 
+      objectReference: {fileID: 826157295}
     - target: {fileID: 3941492084987208878, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1580,12 +1588,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3941492084987208880, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
   m_PrefabInstance: {fileID: 1244949728}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1244949735}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c43c498ea84e9442ab37ea0009ac343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1244949735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3941492084987208873, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
+  m_PrefabInstance: {fileID: 1244949728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1351400526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3161821659389557988, guid: ae5d743fc68526d43b81783f15184dcc, type: 3}
@@ -1861,7 +1874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1901421967}
-  currentTarget: {fileID: 0}
+  currentTarget: {fileID: 826157298}
   camSpeed: 50
   zoomSpeed: 5
   rotateSpeed: 5

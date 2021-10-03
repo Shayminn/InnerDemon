@@ -1350,12 +1350,12 @@ MonoBehaviour:
   player2GameText: {fileID: 1647701497}
   fadeSpeed: 10
   dictionaryTexts:
-  - text: Where am I...?
+  - text: Where am I..?
     fadeText: 0
     color: {r: 1, g: 1, b: 1, a: 1}
     player: 0
     delay: 3
-  - text: Who are you...?
+  - text: Who are you..?
     fadeText: 1
     color: {r: 1, g: 1, b: 1, a: 1}
     player: 0

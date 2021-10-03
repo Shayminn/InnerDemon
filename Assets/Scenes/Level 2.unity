@@ -1513,6 +1513,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3326046912604552364, guid: b09ae3e1779fc7e4e9e43a9b452ff401, type: 3}
   m_PrefabInstance: {fileID: 3326046911499044059}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &319966037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1074229702041858212, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+  m_PrefabInstance: {fileID: 681153560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &361824346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 3941492084987208874, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
+      propertyPath: otherSelf
+      value: 
+      objectReference: {fileID: 319966037}
     - target: {fileID: 3941492084987208878, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1657,7 +1666,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3941492084987208880, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
   m_PrefabInstance: {fileID: 613953752}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1631234262}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c43c498ea84e9442ab37ea0009ac343, type: 3}
@@ -1809,6 +1818,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1074229702041858219, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+      propertyPath: otherSelf
+      value: 
+      objectReference: {fileID: 1631234262}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
 --- !u!1 &681153561 stripped
@@ -1821,7 +1834,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1074229702041858223, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
   m_PrefabInstance: {fileID: 681153560}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 319966037}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c43c498ea84e9442ab37ea0009ac343, type: 3}
@@ -1866,51 +1879,26 @@ MonoBehaviour:
   player2GameText: {fileID: 613953757}
   fadeSpeed: 10
   dictionaryTexts:
-  - text: Where am I...?
-    fadeText: 0
+  - text: How long is this going to take?
+    fadeText: 1
     color: {r: 1, g: 1, b: 1, a: 1}
     player: 0
+    delay: 3.5
+  - text: Just a couple more rooms.
+    fadeText: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    player: 1
     delay: 3
-  - text: Who are you...?
-    fadeText: 1
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 0
+  - text: Don't worry about it.
+    fadeText: 0
+    color: {r: 0.9528302, g: 0.48989856, b: 0.48989856, a: 1}
+    player: 1
     delay: 3
-  - text: 'I''m you. '
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 2.5
-  - text: I'm your darker side.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 2.5
-  - text: ...
+  - text: We'll be done before you even know it
     fadeText: 1
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 0
-    delay: 2
-  - text: We're in the void.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
+    color: {r: 1, g: 0, b: 0, a: 1}
     player: 1
-    delay: 4
-  - text: In between the two worlds.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 4
-  - text: But I know how to get out of here.
-    fadeText: 0
-    color: {r: 0.9716981, g: 0.6554379, b: 0.6554379, a: 1}
-    player: 1
-    delay: 4
-  - text: I'll help you find the exit.
-    fadeText: 1
-    color: {r: 1, g: 0.2028302, b: 0.2028302, a: 1}
-    player: 1
-    delay: 4
+    delay: 3
 --- !u!4 &752227925
 Transform:
   m_ObjectHideFlags: 0
@@ -2078,6 +2066,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1631234262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3941492084987208873, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
+  m_PrefabInstance: {fileID: 613953752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1704743486
 GameObject:
   m_ObjectHideFlags: 0

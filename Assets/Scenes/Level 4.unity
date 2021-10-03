@@ -1333,51 +1333,31 @@ MonoBehaviour:
   player2GameText: {fileID: 1109428910}
   fadeSpeed: 10
   dictionaryTexts:
-  - text: Where am I...?
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 0
-    delay: 3
-  - text: Who are you...?
-    fadeText: 1
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 0
-    delay: 3
-  - text: 'I''m you. '
+  - text: Keep it up.
     fadeText: 0
     color: {r: 1, g: 1, b: 1, a: 1}
     player: 1
-    delay: 2.5
-  - text: I'm your darker side.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 2.5
-  - text: ...
-    fadeText: 1
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 0
     delay: 2
-  - text: We're in the void.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 4
-  - text: In between the two worlds.
-    fadeText: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    player: 1
-    delay: 4
-  - text: But I know how to get out of here.
-    fadeText: 0
-    color: {r: 0.9716981, g: 0.6554379, b: 0.6554379, a: 1}
-    player: 1
-    delay: 4
-  - text: I'll help you find the exit.
+  - text: We're almost there.
     fadeText: 1
-    color: {r: 1, g: 0.2028302, b: 0.2028302, a: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
     player: 1
-    delay: 4
+    delay: 3.25
+  - text: If you say so...
+    fadeText: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    player: 0
+    delay: 2.5
+  - text: Come on,  we'll find your peace.
+    fadeText: 0
+    color: {r: 1, g: 0.514151, b: 0.514151, a: 1}
+    player: 1
+    delay: 3.5
+  - text: Freedom is approaching.
+    fadeText: 1
+    color: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 1}
+    player: 1
+    delay: 3
 --- !u!4 &752227925
 Transform:
   m_ObjectHideFlags: 0
@@ -1407,6 +1387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 3941492084987208874, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
+      propertyPath: otherSelf
+      value: 
+      objectReference: {fileID: 1714994233}
     - target: {fileID: 3941492084987208878, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1499,12 +1483,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3941492084987208880, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
   m_PrefabInstance: {fileID: 1109428909}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1109428916}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c43c498ea84e9442ab37ea0009ac343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1109428916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3941492084987208873, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
+  m_PrefabInstance: {fileID: 1109428909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1351400526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3161821659389557988, guid: ae5d743fc68526d43b81783f15184dcc, type: 3}
@@ -1746,6 +1735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1074229702041858219, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+      propertyPath: otherSelf
+      value: 
+      objectReference: {fileID: 1109428916}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
 --- !u!1 &1714994231 stripped
@@ -1758,12 +1751,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1074229702041858223, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
   m_PrefabInstance: {fileID: 1714994230}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1714994233}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c43c498ea84e9442ab37ea0009ac343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1714994233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1074229702041858212, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+  m_PrefabInstance: {fileID: 1714994230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1901421965
 GameObject:
   m_ObjectHideFlags: 0

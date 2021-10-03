@@ -1,19 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
-{
+public class Portal : MonoBehaviour {
     public Scenes nextLevel;
 
     public void ChangeLevel() {
         StoryProgression.storySeen = false;
 
-        if (nextLevel == Scenes.None) {
-            // Proceed to ending
+        if (nextLevel.Equals(Scenes.Ending)) {
+            GameControl.ending = true;
         }
-        else {
-            SceneChanger.Instance.ChangeScene((int)nextLevel);
-        }
+
+        SceneChanger.Instance.ChangeScene((int)nextLevel);
     }
 }

@@ -589,5 +589,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1074229701041757482}
-  fadeDelay: 3
-  fadeSpeed: 0.5
+  fadeDelay: 2.5
+  fadeSpeed: 0.75

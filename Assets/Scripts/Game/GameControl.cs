@@ -9,4 +9,6 @@ public static class GameControl
 
     public static bool storyTime = false;
     public static bool tutorialCompleted = false;
+
+    public static bool ending = false;
 }

@@ -56,17 +56,24 @@ public class StoryProgression : MonoBehaviour {
             dictionaryTexts.RemoveAt(0);
         }
 
-        yield return StartCoroutine(FadeOut());
+        if (!GameControl.ending) {
+            yield return StartCoroutine(FadeOut());
+            FollowPlayer.Instance.Zoom(false);
 
-        FollowPlayer.Instance.Zoom(false);
+            if (!GameControl.tutorialCompleted) {
+                ActivateTutorialTriggers();
+                GameControl.tutorialCompleted = true;
+            }
 
-        if (!GameControl.tutorialCompleted) {
-            ActivateTutorialTriggers();
-            GameControl.tutorialCompleted = true;
+            InitializePlayersForGame();
+            storySeen = true;
         }
-
-        InitializePlayersForGame();
-        storySeen = true;
+        else {
+            // flicker lights
+            // dark
+            // player gone / player 2 takes over
+            // change scene to credits
+        }
         GameControl.storyTime = false;
     }
 
@@ -131,7 +138,7 @@ public class StoryProgression : MonoBehaviour {
     }
 
     private void ActivateTutorialTriggers() {
-        foreach(Tutorial tutorial in FindObjectsOfType<Tutorial>().ToList()) {
+        foreach (Tutorial tutorial in FindObjectsOfType<Tutorial>().ToList()) {
             tutorial.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
