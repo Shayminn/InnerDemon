@@ -7,7 +7,7 @@ public class PlayerCollision : MonoBehaviour {
     public void OnCollisionEnter2D(Collision2D collision) {
         InteractableObject obj = collision.gameObject.GetComponent<InteractableObject>();
         if (obj != null) {
-            if (!obj.needsFlip) {
+            if (!obj.needsFlip && obj.sprite.color != color) {
                 obj.Touched(color);
             }
         }
