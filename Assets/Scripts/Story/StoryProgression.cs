@@ -50,7 +50,7 @@ public class StoryProgression : MonoBehaviour {
             // player2
             else {
                 if (dictionaryTexts[0].color == Color.white) {
-                    player2.text.color = new Color(0.25f, 0.25f, 0.25f, 1);
+                    player2.text.color = new Color(0.6f, 0.6f, 0.6f, 1);
                 }
                 else {
                     player2.text.color = dictionaryTexts[0].color;
@@ -129,6 +129,7 @@ public class StoryProgression : MonoBehaviour {
 
         if (player2 != null) {
             player2.transform.localScale = new Vector3(0, 0, 0);
+            player2.transform.localEulerAngles = new Vector3(0, 0, 0);
             player2.text = player2StoryText;
             player2Lights.SetActive(false);
             player2Collider.enabled = false;
@@ -143,6 +144,7 @@ public class StoryProgression : MonoBehaviour {
         if (player2 != null) {
             player2.gameObject.SetActive(false);
             player2.transform.localScale = new Vector3(1, 1, 1);
+            player2.transform.localEulerAngles = new Vector3(0, 0, 180);
             player2.text = player2GameText;
             player2StoryText.gameObject.SetActive(false);
             player2Lights.SetActive(true);

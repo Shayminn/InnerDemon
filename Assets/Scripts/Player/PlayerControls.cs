@@ -56,19 +56,19 @@ public class PlayerControls : MonoBehaviour {
             }
 
             if (Input.GetKey(left)) {
-                Vector3 move = -Vector3.right * sign * speed * Time.deltaTime;
+                Vector3 move = -Vector3.right * speed * Time.deltaTime;
                 if (!RaycastHorizontal(move))
                     transform.Translate(move);
 
-                spotLight.transform.localEulerAngles = new Vector3(0, -90 * sign, 0);
+                spotLight.transform.localEulerAngles = new Vector3(0, -90, 0);
             }
 
             if (Input.GetKey(right)) {
-                Vector3 move = Vector3.right * sign * speed * Time.deltaTime;
+                Vector3 move = Vector3.right * speed * Time.deltaTime;
                 if (!RaycastHorizontal(move))
                     transform.Translate(move);
 
-                spotLight.transform.localEulerAngles = new Vector3(0, 90 * sign, 0);
+                spotLight.transform.localEulerAngles = new Vector3(0, 90, 0);
             }
 
             if (!inAir) {
