@@ -41,9 +41,9 @@ public class PlayerCollision : MonoBehaviour {
             case nameof(Tags.Door):
                 if (GameControl.hasKey) {
                     AudioManager.Instance.PlaySFX(SFX.Unlock);
-                    GameControl.hasKey = false;
                     collision.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("OpenedDoor");
                     Destroy(collision.transform.GetChild(0).gameObject); // Destroys box collider
+                    GameControl.hasKey = false;
                 }
                 else {
                     playerText.WriteText("I need to find the key.", true);

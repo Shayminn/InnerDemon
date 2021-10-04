@@ -3477,7 +3477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3383331008011103452, guid: 92ff04579cf2e10449af25b4896d7339, type: 3}
       propertyPath: objsToMove.Array.data[1].toPosition.y
-      value: -10.35
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3383331008011103452, guid: 92ff04579cf2e10449af25b4896d7339, type: 3}
       propertyPath: objsToMove.Array.data[2].toPosition.x
@@ -3858,7 +3858,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.18111429, g: 0.20754719, b: 0.18293725, a: 1}
+  m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

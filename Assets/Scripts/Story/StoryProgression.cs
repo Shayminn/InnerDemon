@@ -50,7 +50,7 @@ public class StoryProgression : MonoBehaviour {
             // player2
             else {
                 if (dictionaryTexts[0].color == Color.white) {
-                    player2.text.color = Color.gray;
+                    player2.text.color = new Color(0.25f, 0.25f, 0.25f, 1);
                 }
                 else {
                     player2.text.color = dictionaryTexts[0].color;
