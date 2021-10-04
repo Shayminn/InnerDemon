@@ -6,6 +6,8 @@ public class Portal : MonoBehaviour {
     public GameObject player2;
 
     public void ChangeLevel() {
+        Debug.Log(nextLevel + " " + (int)nextLevel);
+
         StoryProgression.storySeen = false;
 
         if (ending) {

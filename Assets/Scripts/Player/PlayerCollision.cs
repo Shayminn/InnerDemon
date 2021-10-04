@@ -23,11 +23,6 @@ public class PlayerCollision : MonoBehaviour {
                 }
                 break;
 
-            case nameof(Tags.Spike):
-                AudioManager.Instance.PlaySFX(SFX.Death);
-                // death, switch to other character
-                break;
-
             case nameof(Tags.Button):
                 AudioManager.Instance.PlaySFX(SFX.Button);
                 playerText.WriteText("(I hear something move)", true);

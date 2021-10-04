@@ -1014,6 +1014,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3941492084987208874, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941492084987208874, guid: c06d36132780e6a48858afa768ebd1f5, type: 3}
       propertyPath: otherSelf
       value: 
       objectReference: {fileID: 2023331699}
@@ -1574,6 +1578,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074229702041858219, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074229702041858219, guid: 221f5893cc6d19d47896d3d6990a51a6, type: 3}
       propertyPath: otherSelf
       value: 
       objectReference: {fileID: 1415953058}
@@ -1639,7 +1647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9583fd9b3291db469d37c51d0b63063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alternateEnding: 1
+  alternateEnding: 0
   playerSprite: {fileID: 2023331707}
   player2Sprite: {fileID: 1415953063}
   unlitMaterial: {fileID: 2100000, guid: ff6cee6d4146f724da52ccb5d73d7cf2, type: 2}

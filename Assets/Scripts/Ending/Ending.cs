@@ -32,6 +32,7 @@ public class Ending : MonoBehaviour {
         else {
             Gameover.Instance.DisplayGameOver(true);
         }
+        GameControl.ending = false;
     }
 
     private IEnumerator FlickerLight() {
@@ -42,9 +43,11 @@ public class Ending : MonoBehaviour {
         yield return new WaitForSeconds(flickTime);
         player2Sprite.gameObject.SetActive(false);
         pointLight.SetActive(true);
+        playerSprite.material = defaultMaterial;
 
         yield return new WaitForSeconds(delayBetweenFlicks);
 
+        playerSprite.material = unlitMaterial;
         pointLight.SetActive(false);
         yield return new WaitForSeconds(flickTime);
         playerSprite.gameObject.SetActive(false);

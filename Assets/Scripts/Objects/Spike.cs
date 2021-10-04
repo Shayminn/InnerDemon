@@ -19,6 +19,7 @@ public class Spike : MonoBehaviour
                 Gameover.Instance.DisplayGameOver(false);
             }
 
+            AudioManager.Instance.PlaySFX(SFX.Death);
             Destroy(collision.gameObject);
         }
     }
