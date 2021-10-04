@@ -6,20 +6,18 @@ public class Portal : MonoBehaviour {
     public GameObject player2;
 
     public void ChangeLevel() {
-        Debug.Log(nextLevel + " " + (int)nextLevel);
-
         StoryProgression.storySeen = false;
 
         if (ending) {
             if (player2 == null) {
-                SceneChanger.Instance.ChangeScene((int)Scenes.Alternate);
+                SceneChanger.Instance.ChangeScene(Scenes.Alternate.ToString());
             }
             else {
-                SceneChanger.Instance.ChangeScene((int)Scenes.Ending);
+                SceneChanger.Instance.ChangeScene(Scenes.Ending.ToString());
             }
         }
         else {
-            SceneChanger.Instance.ChangeScene((int)nextLevel);
+            SceneChanger.Instance.ChangeScene(nextLevel.ToString());
         }
     }
 }

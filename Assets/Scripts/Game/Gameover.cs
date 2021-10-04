@@ -54,12 +54,12 @@ public class Gameover : MonoBehaviour
     }
 
     public void RestartLastLevel() {
-        SceneChanger.Instance.ChangeScene((int)Scenes.Level5);
+        SceneChanger.Instance.ChangeScene(Scenes.Level5.ToString());
         HideAll();
     }
 
     public void ContinueToCredits() {
-        SceneChanger.Instance.ChangeScene((int)Scenes.Credits);
+        SceneChanger.Instance.ChangeScene(Scenes.Credits.ToString());
         HideAll();
     }
 

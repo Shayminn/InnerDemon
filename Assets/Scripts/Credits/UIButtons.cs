@@ -7,7 +7,7 @@ public class UIButtons : MonoBehaviour
     public void PlayAgain() {
         AudioManager.Instance.PlaySFX(SFX.Click);
 
-        SceneChanger.Instance.ChangeScene((int)Scenes.Level1);
+        SceneChanger.Instance.ChangeScene(Scenes.Level1.ToString());
     }
 
     public void Quit() {
